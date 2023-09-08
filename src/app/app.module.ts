@@ -10,6 +10,7 @@ import { TaskListPresentationComponent } from './task-list-container/task-list-p
 import { PriorityTaskContainerComponent } from './priority-task-container/priority-task-container.component';
 import { PriorityTaskPresentationComponent } from './priority-task-container/priority-task-presentation/priority-task-presentation.component';
 import { TaskProgressComponent } from './task-progress/task-progress.component';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -20,13 +21,10 @@ import { TaskProgressComponent } from './task-progress/task-progress.component';
     TaskListPresentationComponent,
     PriorityTaskContainerComponent,
     PriorityTaskPresentationComponent,
-    TaskProgressComponent
+    TaskProgressComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, CoreModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
