@@ -1,1 +1,31 @@
 // Card styles goes here
+.card-body {
+    margin: 0;
+
+    span {
+        font-size: 12px;
+        font-weight: 600;
+        border-radius: 10px;
+        padding: 6px 18px;
+    }
+
+    .urgent {
+        background-color: #FF7381;
+        color: white;
+    }
+
+    .important {
+        background-color: #FBDF7B;
+        color: black;
+    }
+
+    .not-urgent {
+        background-color: #B4CD61;
+        color: black;
+    }
+
+    .not-important {
+        background-color: #51CDC4;
+        color: black;
+    }
+}
