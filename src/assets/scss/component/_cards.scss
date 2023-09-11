@@ -33,3 +33,11 @@
 .task-progress-card {
     width: 150px;
 }
+
+.task-details {
+    font-size: 14px;
+
+    .task-description {
+        text-align: justify;
+    }
+}
