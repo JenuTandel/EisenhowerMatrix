@@ -4,7 +4,8 @@ $success: #3A925D;
 $danger: #AF0808;
 $warning: #DE7513;
 $info: #0E6190;
-$gray: #989d9e;
+$gray: #D9D9D9;
+$dark: #212529;
 
 // Dedicated for button text only 
 $btn-text-primary: $primary;
@@ -16,5 +17,6 @@ $theme-colors: (
     "info": $info,
     "danger": $danger,
     "warning":$warning,
+    "dark":$dark,
     "gray":$gray,
 );
