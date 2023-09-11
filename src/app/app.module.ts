@@ -11,6 +11,7 @@ import { PriorityTaskContainerComponent } from './priority-task-container/priori
 import { PriorityTaskPresentationComponent } from './priority-task-container/priority-task-presentation/priority-task-presentation.component';
 import { TaskProgressComponent } from './task-progress/task-progress.component';
 import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { CoreModule } from './core/core.module';
     PriorityTaskPresentationComponent,
     TaskProgressComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, CoreModule],
+  imports: [BrowserModule, AppRoutingModule, CoreModule, SharedModule],
   providers: [],
   bootstrap: [AppComponent],
 })
