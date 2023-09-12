@@ -1,12 +1,12 @@
 <div class="row nav gx-0">
   <div class="col-6 nav-item cursor-pointer">
-    <a class="text-center nav-link" routerLink="/todo-list">MY TODO LIST</a>
-    <div class="horizontal-line"></div>
+    <a class="text-center nav-link" (click)="onTodolist()">MY TODO LIST</a>
+    <div class="horizontal-line" *ngIf="line"></div>
   </div>
   <div class="col-6 nav-item cursor-pointer">
-    <a class="text-center nav-link" routerLink="/task-priority"
+    <a class="text-center nav-link" (click)="onTaskpriority()"
       >TASK WITH PRIORITY</a
     >
-    <div class="horizontal-line"></div>
+    <div class="horizontal-line" *ngIf="!line"></div>
   </div>
 </div>
