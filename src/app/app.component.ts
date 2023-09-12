@@ -1,20 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
-import { UserAuthService } from './core/services/auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'EisenhowerMatrix';
   public userData: any;
 
-  constructor(
-    public authService: AuthService,
-    private userauth: UserAuthService
-  ) {
+  constructor(public authService: AuthService) {
     this.userData = {};
     authService.isAuthenticated$.subscribe((res) => {
       if (!res) {
@@ -37,5 +33,4 @@ export class AppComponent implements OnInit {
       // }
     });
   }
-  ngOnInit() {}
 }

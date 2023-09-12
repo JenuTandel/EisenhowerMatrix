@@ -9,10 +9,15 @@ import { TaskFormContainerComponent } from 'src/app/task-form-container/task-for
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
+  public profile: string | undefined;
   constructor(
     public authService: AuthService,
     private overlayService: OverlayService
-  ) {}
+  ) {
+    authService.user$.subscribe((res) => {
+      this.profile = res?.picture;
+    });
+  }
 
   onAddTask() {
     this.overlayService.openDialog(TaskFormContainerComponent, 'taskform');
