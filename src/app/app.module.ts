@@ -16,6 +16,7 @@ import { TaskListContainerComponent } from './task-list-container/task-list-cont
 import { TaskListPresentationComponent } from './task-list-container/task-list-presentation/task-list-presentation.component';
 import { TaskProgressComponent } from './task-progress/task-progress.component';
 import { AuthModule } from '@auth0/auth0-angular';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AuthModule } from '@auth0/auth0-angular';
     AppRoutingModule,
     CoreModule,
     SharedModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AuthModule.forRoot(environment.auth),
   ],

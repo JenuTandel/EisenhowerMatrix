@@ -14,4 +14,5 @@ export const environment = {
       redirect_uri: 'http://localhost:4200/',
     },
   },
+  baseurl: 'http://localhost:3000/',
 };
