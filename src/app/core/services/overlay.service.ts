@@ -14,12 +14,13 @@ export class OverlayService {
     this.closeDialog = new Subject();
   }
 
-  openDialog(component: any): ComponentRef<any> {
-    const positionStrategy = this.overlay.position().global();
+  openDialog(component: any, className: string): ComponentRef<any> {
+    // const positionStrategy = this.overlay.position();
 
     // Create an overlay with customizable options
     const overlayRef = this.overlay.create({
-      positionStrategy,
+      // positionStrategy,
+      panelClass: className,
       hasBackdrop: true,
     });
 

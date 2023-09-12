@@ -1,5 +1,9 @@
 //import bootstrap icons
 @import '../node_modules/bootstrap-icons/font/bootstrap-icons.css';
+
+//import overlay class
+@import '@angular/cdk/overlay-prebuilt.css';
+
 // Project base and component style import
 
 @import 'assets/scss/base/index';

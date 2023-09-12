@@ -1,7 +1,7 @@
 <div class="nav p-2 d-flex align-items-center justify-content-between">
   <h4 class="text-primary fw-normal">Eisenhower Matrix</h4>
   <div class="d-flex align-items-center">
-    <form>
+    <form class="me-2">
       <input
         type="search"
         placeholder="Search here"
@@ -10,6 +10,7 @@
     </form>
     <span
       class="bi bi-plus-circle-fill fs-3 text-primary cursor-pointer me-2"
+      (click)="onAddTask()"
     ></span>
     <div class="nav-item dropdown me-2">
       <div
@@ -20,7 +21,9 @@
         <img src="" />
       </div>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Logout</a></li>
+        <li>
+          <a class="dropdown-item" (click)="authService.logout()">Logout</a>
+        </li>
       </ul>
     </div>
   </div>
