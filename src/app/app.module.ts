@@ -13,6 +13,9 @@ import { TaskProgressComponent } from './task-progress/task-progress.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { TaskDetailsComponent } from './task-details/task-details.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,13 @@ import { TaskDetailsComponent } from './task-details/task-details.component';
     TaskProgressComponent,
     TaskDetailsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, CoreModule, SharedModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CoreModule,
+    SharedModule,
+    AngularFireModule.initializeApp(environment.firebase),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

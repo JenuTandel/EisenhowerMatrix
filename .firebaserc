@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "eisenhowermatrix-d6daf": {
+      "hosting": {
+        "EisenhowerMatrix": [
+          "eisenhowermatrix-d6daf"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "eisenhowermatrix-d6daf"
+  }
+}
