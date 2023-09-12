@@ -1,4 +1,7 @@
-<div class="d-flex flex-column h-100">
+<div
+  class="d-flex flex-column h-100"
+  *ngIf="authService.isAuthenticated$ | async"
+>
   <app-header></app-header>
   <app-navbar></app-navbar>
   <div class="flex-grow-1 bg-secondary">
