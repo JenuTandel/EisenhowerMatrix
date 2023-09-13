@@ -1,10 +1,15 @@
 <div class="p-3 bg-white h-100 w-100">
   <h6 class="text-primary fw-bold mb-3">Task Details</h6>
-  <form id="task-form">
+  <form id="task-form" [formGroup]="taskForm" (submit)="onAddTask()">
     <!-- start: task name control -->
     <div class="mb-3">
       <label for="task-name">Task name<span class="text-danger">*</span></label>
-      <input type="email" class="form-control" id="task-name" />
+      <input
+        type="email"
+        class="form-control"
+        id="task-name"
+        formControlName="taskName"
+      />
     </div>
     <!-- end: task name control -->
 
@@ -13,13 +18,18 @@
       <label for="task-description"
         >Task description<span class="text-danger">*</span></label
       >
-      <textarea class="form-control" id="task-description" rows="3"></textarea>
+      <textarea
+        class="form-control"
+        id="task-description"
+        rows="3"
+        formControlName="taskDescription"
+      ></textarea>
     </div>
     <!-- end: task description control -->
 
     <!-- start: urgency radio buttons -->
     <div class="mb-3">
-      <label class="mb-2" for=""
+      <label class="mb-2" for="taskUrgency"
         >Urgency<span class="text-danger">*</span></label
       >
       <div class="d-flex">
@@ -27,8 +37,9 @@
           <input
             class="form-check-input"
             type="radio"
-            name="urgency"
             id="urgent"
+            formControlName="taskUrgency"
+            value="Urgent"
           />
           <label class="form-check-label" for="urgent"> Urgent </label>
         </div>
@@ -36,9 +47,9 @@
           <input
             class="form-check-input"
             type="radio"
-            name="urgency"
             id="not-urgent"
-            checked
+            formControlName="taskUrgency"
+            value="Not Urgent"
           />
           <label class="form-check-label" for="not-urgent"> Not urgent </label>
         </div>
@@ -48,14 +59,17 @@
 
     <!-- start: importance radio buttons -->
     <div class="mb-3">
-      <label class="mb-2">Importance<span class="text-danger">*</span></label>
+      <label class="mb-2" for="taskImportance"
+        >Importance<span class="text-danger">*</span></label
+      >
       <div class="d-flex">
         <div class="form-check me-3">
           <input
             class="form-check-input"
             type="radio"
-            name="importance"
             id="important"
+            formControlName="taskImportance"
+            value="Important"
           />
           <label class="form-check-label" for="important"> Important </label>
         </div>
@@ -63,9 +77,9 @@
           <input
             class="form-check-input"
             type="radio"
-            name="importance"
             id="not-important"
-            checked
+            value="Not Important"
+            formControlName="taskImportance"
           />
           <label class="form-check-label" for="not-important">
             Not important
@@ -78,14 +92,24 @@
     <!-- start: start date control -->
     <div class="mb-3">
       <label for="start-date">Start date:</label>
-      <input type="date" class="form-control" id="start-date" />
+      <input
+        type="date"
+        class="form-control"
+        id="start-date"
+        formControlName="startDate"
+      />
     </div>
     <!-- end: start date control -->
 
     <!-- start: due date control -->
     <div class="mb-3">
       <label for="due-date">Due date<span class="text-danger">*</span></label>
-      <input type="date" class="form-control" id="due-date" />
+      <input
+        type="date"
+        class="form-control"
+        id="due-date"
+        formControlName="dueDate"
+      />
     </div>
     <!-- end: due date control -->
 

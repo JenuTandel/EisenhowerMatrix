@@ -19,9 +19,14 @@ export class UserAuthService {
       id: +userData.id,
     });
   }
-  // putUserData(userData: any): Observable<any> {
-  //   console.log(userData);
-  //   const id = +userData.id;
-  //   return this.http.put(`${this.baseurl}Users/${id}`, userData);
+
+  getUserById(userId: number): Observable<any> {
+    return this.http.get(`${this.baseurl}Users/${userId}`);
+  }
+
+  // putUserData(userId: any, userData: any): Observable<any> {
+  //   const user: any = {};
+  //   user.todo = userData;
+  //   return this.http.put(`${this.baseurl}Users/${userId}`, user);
   // }
 }

@@ -1,0 +1,32 @@
+{
+  "Users": [
+    {
+      "name": "jinal tandel",
+      "email": "jinaltandel06@gmail.com",
+      "profile": "https://lh3.googleusercontent.com/a/ACg8ocKm_NPuItoMFWIs5nJqXlICW8By-sJwjvUOXNayg4R_XNo=s96-c",
+      "id": 110769295324459730000
+    }
+  ],
+  "ToDo": [
+    {
+      "taskName": "UI Design",
+      "taskDescription": "UI Design of all pages",
+      "taskUrgency": "Urgent",
+      "taskImportance": "Not Important",
+      "startDate": "2023-09-14",
+      "dueDate": "2023-09-23",
+      "userId": "110769295324459730000",
+      "id": 1
+    },
+    {
+      "taskName": "a",
+      "taskDescription": "a",
+      "taskUrgency": "Urgent",
+      "taskImportance": "Important",
+      "startDate": "",
+      "dueDate": "2023-09-15",
+      "userId": 110769295324459730000,
+      "id": 2
+    }
+  ]
+}

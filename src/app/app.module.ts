@@ -17,6 +17,7 @@ import { TaskListPresentationComponent } from './task-list-container/task-list-p
 import { TaskProgressComponent } from './task-progress/task-progress.component';
 import { AuthModule } from '@auth0/auth0-angular';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     CoreModule,
     SharedModule,
     HttpClientModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AuthModule.forRoot(environment.auth),
   ],
