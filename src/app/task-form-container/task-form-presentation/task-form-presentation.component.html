@@ -9,7 +9,34 @@
         class="form-control"
         id="task-name"
         formControlName="taskName"
+        [ngClass]="{
+          'is-invalid':
+            taskForm.controls['taskName'].invalid &&
+            (isSubmitted ||
+              taskForm.controls['taskName'].touched ||
+              taskForm.controls['taskName'].dirty),
+          'is-valid':
+            taskForm.controls['taskName'].valid &&
+            (isSubmitted ||
+              taskForm.controls['taskName'].touched ||
+              taskForm.controls['taskName'].dirty)
+        }"
       />
+
+      <div
+        *ngIf="
+          taskForm.controls['taskName'].invalid &&
+          (isSubmitted ||
+            taskForm.controls['taskName'].touched ||
+            taskForm.controls['taskName'].dirty)
+        "
+      >
+        <span
+          class="error text-danger"
+          *ngIf="taskForm.controls['taskName'].errors?.['required']"
+          >Enter the task name</span
+        >
+      </div>
     </div>
     <!-- end: task name control -->
 
@@ -23,7 +50,34 @@
         id="task-description"
         rows="3"
         formControlName="taskDescription"
+        [ngClass]="{
+          'is-invalid':
+            taskForm.controls['taskDescription'].invalid &&
+            (isSubmitted ||
+              taskForm.controls['taskDescription'].touched ||
+              taskForm.controls['taskDescription'].dirty),
+          'is-valid':
+            taskForm.controls['taskDescription'].valid &&
+            (isSubmitted ||
+              taskForm.controls['taskDescription'].touched ||
+              taskForm.controls['taskDescription'].dirty)
+        }"
       ></textarea>
+
+      <div
+        *ngIf="
+          taskForm.controls['taskDescription'].invalid &&
+          (isSubmitted ||
+            taskForm.controls['taskDescription'].touched ||
+            taskForm.controls['taskDescription'].dirty)
+        "
+      >
+        <span
+          class="error text-danger"
+          *ngIf="taskForm.controls['taskDescription'].errors?.['required']"
+          >Enter the task description
+        </span>
+      </div>
     </div>
     <!-- end: task description control -->
 
@@ -109,7 +163,34 @@
         class="form-control"
         id="due-date"
         formControlName="dueDate"
+        [ngClass]="{
+          'is-invalid':
+            taskForm.controls['dueDate'].invalid &&
+            (isSubmitted ||
+              taskForm.controls['dueDate'].touched ||
+              taskForm.controls['dueDate'].dirty),
+          'is-valid':
+            taskForm.controls['dueDate'].valid &&
+            (isSubmitted ||
+              taskForm.controls['dueDate'].touched ||
+              taskForm.controls['dueDate'].dirty)
+        }"
       />
+
+      <div
+        *ngIf="
+          taskForm.controls['dueDate'].invalid &&
+          (isSubmitted ||
+            taskForm.controls['dueDate'].touched ||
+            taskForm.controls['dueDate'].dirty)
+        "
+      >
+        <span
+          class="error text-danger"
+          *ngIf="taskForm.controls['dueDate'].errors?.['required']"
+          >Select the due date</span
+        >
+      </div>
     </div>
     <!-- end: due date control -->
 

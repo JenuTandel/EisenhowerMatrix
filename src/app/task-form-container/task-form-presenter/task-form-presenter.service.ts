@@ -23,8 +23,8 @@ export class TaskFormPresenterService {
     return this.formBuilder.group({
       taskName: ['', [Validators.required]],
       taskDescription: ['', [Validators.required]],
-      taskUrgency: ['', [Validators.required]],
-      taskImportance: ['', [Validators.required]],
+      taskUrgency: ['Urgent', [Validators.required]],
+      taskImportance: ['Important', [Validators.required]],
       startDate: [''],
       dueDate: ['', [Validators.required]],
     });
