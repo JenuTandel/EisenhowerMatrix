@@ -20,8 +20,6 @@ export class AppComponent {
       if (!res) {
         this.authService.loginWithRedirect();
       } else {
-        console.log(res);
-
         this.authService.user$.subscribe((res) => {
           this.userData.name = res?.name;
           this.userData.email = res?.email;
@@ -34,8 +32,6 @@ export class AppComponent {
               !res.some((item: any) => item.id == +this.userData.id)
             ) {
               this.userAuth.postUserData(this.userData).subscribe((res) => {
-                console.log(res);
-
                 localStorage.setItem('id', res.id);
               });
             }

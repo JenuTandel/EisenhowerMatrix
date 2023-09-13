@@ -17,8 +17,6 @@ export class HeaderComponent {
     private userAuth: UserAuthService
   ) {
     authService.user$.subscribe((res) => {
-      console.log(res);
-
       this.profile = res?.picture;
     });
   }
