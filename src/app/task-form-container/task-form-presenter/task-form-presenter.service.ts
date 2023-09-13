@@ -3,10 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 import { OverlayService } from 'src/app/core/services/overlay.service';
 import { Task } from 'src/app/models/task.model';
+import { TaskFormContainerComponent } from '../task-form-container.component';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class TaskFormPresenterService {
   public add$: Observable<Task>;
   private add: Subject<Task>;
@@ -35,5 +34,13 @@ export class TaskFormPresenterService {
       this.add.next(taskForm.value);
       this.overlayService.closeDialog.next(true);
     }
+  }
+
+  public bindControlValue(taskForm: FormGroup, task: Task): FormGroup {
+    if (task) {
+      taskForm.patchValue(task);
+      // this.overlayService.openDialog(TaskFormContainerComponent, 'taskform');
+    }
+    return taskForm;
   }
 }

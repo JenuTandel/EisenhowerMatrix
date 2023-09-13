@@ -10,26 +10,6 @@
   "ToDo": [
     {
       "taskName": "UI Design",
-      "taskDescription": "UI Design of all pages",
-      "taskUrgency": "Urgent",
-      "taskImportance": "Not Important",
-      "startDate": "2023-09-14",
-      "dueDate": "2023-09-23",
-      "userId": "110769295324459730000",
-      "id": 1
-    },
-    {
-      "taskName": "a",
-      "taskDescription": "a",
-      "taskUrgency": "Urgent",
-      "taskImportance": "Important",
-      "startDate": "",
-      "dueDate": "2023-09-15",
-      "userId": 110769295324459730000,
-      "id": 2
-    },
-    {
-      "taskName": "UI Design",
       "taskDescription": "abc",
       "taskUrgency": "Not Urgent",
       "taskImportance": "Important",
@@ -37,6 +17,36 @@
       "dueDate": "2023-09-29",
       "userId": 110769295324459730000,
       "id": 3
+    },
+    {
+      "taskName": "Requirement Analysissss",
+      "taskDescription": "fdfdfdf",
+      "taskUrgency": "Not Urgent",
+      "taskImportance": "Not Important",
+      "startDate": "",
+      "dueDate": "2023-09-14",
+      "id": 7,
+      "userId": 110769295324459730000
+    },
+    {
+      "taskName": "Development",
+      "taskDescription": "sdfsdf",
+      "taskUrgency": "Urgent",
+      "taskImportance": "Important",
+      "startDate": "2023-09-22",
+      "dueDate": "2023-09-23",
+      "id": 8,
+      "userId": 110769295324459730000
+    },
+    {
+      "taskName": "Database",
+      "taskDescription": "dfffffffffffffffffffffffffffff",
+      "taskUrgency": "Not Urgent",
+      "taskImportance": "Important",
+      "startDate": "",
+      "dueDate": "2023-09-27",
+      "id": 10,
+      "userId": 110769295324459730000
     }
   ]
 }

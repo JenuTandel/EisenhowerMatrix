@@ -34,8 +34,10 @@ export class TaskService {
   }
 
   //Update the task details
-  updateTask(taskId: number, taskData: Task): Observable<any> {
-    return this.http.put(`${this.baseUrl}ToDo/${taskId}`, taskData);
+  updateTask(taskData: Task): Observable<any> {
+    console.log(taskData);
+
+    return this.http.put(`${this.baseUrl}ToDo/${taskData.id}`, taskData);
   }
 
   //Delete the task

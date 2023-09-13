@@ -1,15 +1,12 @@
-<div class="task-details p-4">
+<div class="task-details p-4 bg-white">
   <h5 class="text-primary fw-semibold mb-2 border-bottom pb-2">
-    Requirement Analysis
+    {{ taskDetails.taskName }}
   </h5>
   <p class="mb-2 task-description">
-    Learn and Understand the Eisenhower Matrix. How to make an app which follows
-    the Eisenhower matrix to manage our todo list? Figure out how to design
-    prototype according to application need? Learn new functionality like Auth0
-    and Drag and Drop.
+    {{ taskDetails.taskDescription }}
   </p>
-  <p class="fw-bold">Urgent</p>
-  <p class="fw-bold mb-2">Important</p>
-  <p>Start Date: 10 Sept 2023</p>
-  <p>Due Date: 25 Dec 2023</p>
+  <p class="fw-bold">{{ taskDetails.taskUrgency }}</p>
+  <p class="fw-bold mb-2">{{ taskDetails.taskImportance }}</p>
+  <p>Start Date: {{ taskDetails.startDate | date : "mediumDate" }}</p>
+  <p>Due Date: {{ taskDetails.dueDate | date : "mediumDate" }}</p>
 </div>

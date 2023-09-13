@@ -124,6 +124,7 @@
             id="important"
             formControlName="taskImportance"
             value="Important"
+            
           />
           <label class="form-check-label" for="important"> Important </label>
         </div>
@@ -195,6 +196,17 @@
     <!-- end: due date control -->
 
     <!-- submit button -->
-    <button type="submit" class="btn btn-primary px-4">Add</button>
+    <button type="submit" class="btn btn-primary px-4">
+      <span>Add</span>
+      <!-- <span *ngIf="taskId">Update</span> -->
+    </button>
+    <!-- <button
+      type="button"
+      class="btn btn-primary px-4"
+      *ngIf="taskId"
+      (click)="onUpdateTask()"
+    >
+      Update
+    </button> -->
   </form>
 </div>
