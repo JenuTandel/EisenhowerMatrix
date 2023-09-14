@@ -1,28 +1,68 @@
-<div class="card bg-white p-2 rounded-2">
+<div class="card bg-white p-2 rounded-2 mb-3 cursor-pointer">
   <div class="card-title d-flex align-items-center">
     <span class="bi bi-check-circle text-dark opacity-75 me-2"></span>
-    <h6 class="fw-semibold text-success">Requirement Analysis</h6>
+    <h6
+      class="fw-semibold"
+      [ngClass]="{
+        'text-success':
+          Tasks.taskUrgency == 'Urgent' || Tasks.taskImportance == 'Important',
+        'text-warning':
+          Tasks.taskUrgency == 'Not Urgent' &&
+          Tasks.taskImportance == 'Important',
+        'text-info':
+          Tasks.taskUrgency == 'Urgent' &&
+          Tasks.taskImportance == 'Not Important',
+        'text-danger':
+          Tasks.taskUrgency == 'Not Urgent' &&
+          Tasks.taskImportance == 'Not Important'
+      }"
+    >
+      {{ Tasks.taskName }}
+    </h6>
   </div>
   <div class="card-body">
-    <div class="do my-2">
-      <span class="urgent me-2">Urgent</span>
-      <span class="important">Important</span>
+    <div
+      class="my-2"
+      *ngIf="
+        Tasks.taskUrgency == 'Urgent' && Tasks.taskImportance == 'Important'
+      "
+    >
+      <span class="urgent me-2">{{ Tasks.taskUrgency }}</span>
+      <span class="important">{{ Tasks.taskImportance }}</span>
     </div>
-    <!-- <div class="schedule">
-      <span class="not-urgent me-2">Not urgent</span>
-      <span class="important">Important</span>
-    </div> -->
-    <!-- <div class="delegate">
-      <span class="urgent me-2">Urgent</span>
-      <span class="not-important">Not important</span>
-    </div> -->
-    <!-- <div class="delete">
-      <span class="not-urgent me-2">Not urgent</span>
-      <span class="not-important">Not important</span>
-    </div> -->
+
+    <div
+      class="my-2"
+      *ngIf="
+        Tasks.taskUrgency == 'Not Urgent' && Tasks.taskImportance == 'Important'
+      "
+    >
+      <span class="not-urgent me-2">{{ Tasks.taskUrgency }}</span>
+      <span class="important">{{ Tasks.taskImportance }}</span>
+    </div>
+    <div
+      class="my-2"
+      *ngIf="
+        Tasks.taskUrgency == 'Urgent' && Tasks.taskImportance == 'Not Important'
+      "
+    >
+      <span class="urgent me-2">{{ Tasks.taskUrgency }}</span>
+      <span class="not-important">{{ Tasks.taskImportance }}</span>
+    </div>
+    <div
+      class="my-2"
+      *ngIf="
+        Tasks.taskUrgency == 'Not Urgent' &&
+        Tasks.taskImportance == 'Not Important'
+      "
+    >
+      <span class="not-urgent me-2">{{ Tasks.taskUrgency }}</span>
+      <span class="not-important">{{ Tasks.taskImportance }}</span>
+    </div>
     <div class="date">
-      <span class="p-0">Dec 7</span> -
-      <span class="p-0">Dec 25</span>
+      <span class="p-0">{{ Tasks.startDate | date : "mediumDate" }}</span>
+      <span *ngIf="Tasks.startDate">-</span>
+      <span class="p-0">{{ Tasks.dueDate | date : "mediumDate" }}</span>
     </div>
   </div>
 </div>
