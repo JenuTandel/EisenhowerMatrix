@@ -2,10 +2,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DataCommunicationsService } from 'src/app/core/services/data-communications.service';
 import { OverlayService } from 'src/app/core/services/overlay.service';
 import { Task } from 'src/app/models/task.model';
+import { TaskDetailsComponent } from 'src/app/task-details/task-details.component';
 import { TaskFormContainerComponent } from 'src/app/task-form-container/task-form-container.component';
 import { TaskListPresenterService } from '../task-list-presenter/task-list-presenter.service';
-import { ChangeDetectionStrategy } from '@angular/compiler';
-import { TaskDetailsComponent } from 'src/app/task-details/task-details.component';
 
 @Component({
   selector: 'app-task-list-presentation',
@@ -34,8 +33,6 @@ export class TaskListPresentationComponent {
       this.dataCommunicationService.getData(task);
     }, 0);
     this.overlayService.openDialog(TaskFormContainerComponent, 'taskform');
-    // patchData.instance.taskForm.patchValue(task);
-    // patchData.instance.taskId = task?.id;
   }
   onDeleteTask(id: number) {
     this.deleteTask.emit(id);

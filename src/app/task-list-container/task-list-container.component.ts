@@ -26,6 +26,8 @@ export class TaskListContainerComponent implements OnInit {
     this.getAllTasks();
 
     this.dataCommunicationsService.isUpdated$.subscribe((res) => {
+      console.log(res);
+
       if (res) {
         this.getAllTasks();
       }

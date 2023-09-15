@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Task } from 'src/app/models/task.model';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class DataCommunicationsService {
   private getDetails: Subject<any>;
 
   public isUpdated$: Observable<boolean>;
-  public isUpdated: Subject<boolean>;
+  private isUpdated: BehaviorSubject<boolean>;
 
   constructor() {
     console.log('data communication service work');
@@ -26,7 +26,8 @@ export class DataCommunicationsService {
     this.getDetails$ = this.getDetails.asObservable();
 
     this.isUpdated$ = new Observable();
-    this.isUpdated = new Subject<any>();
+    this.isUpdated = new BehaviorSubject<boolean>(false);
+    this.isUpdated$ = this.isUpdated.asObservable();
   }
 
   getData(data: Task) {
@@ -35,5 +36,9 @@ export class DataCommunicationsService {
 
   getTaskDetails(data: Task) {
     this.getDetails.next(data);
+  }
+
+  getTaskUpdated() {
+    this.isUpdated.next(true);
   }
 }

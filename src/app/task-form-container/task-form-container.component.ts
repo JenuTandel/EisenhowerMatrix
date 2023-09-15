@@ -33,12 +33,16 @@ export class TaskFormContainerComponent implements OnInit {
       const taskData = { ...data, userId: this.userId };
       this.taskService.updateTask(taskData).subscribe((res) => {
         if (res) {
-          this.dataCommunicationsService.isUpdated.next(true);
+          this.dataCommunicationsService.getTaskUpdated();
         }
       });
     } else {
       const taskData = { ...data, userId: this.userId };
-      this.taskService.addTask(taskData).subscribe((res) => {});
+      this.taskService.addTask(taskData).subscribe((res) => {
+        if (res) {
+          this.dataCommunicationsService.getTaskUpdated();
+        }
+      });
     }
   }
 }

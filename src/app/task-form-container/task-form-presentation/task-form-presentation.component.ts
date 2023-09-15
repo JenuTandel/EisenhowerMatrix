@@ -24,6 +24,7 @@ export class TaskFormPresentationComponent implements OnInit {
   @Output() updateTaskData: EventEmitter<Task>;
   public taskForm: FormGroup;
   public isSubmitted: boolean;
+  public isUpdated: boolean;
 
   constructor(
     private taskFormPresenterService: TaskFormPresenterService,
@@ -31,6 +32,7 @@ export class TaskFormPresentationComponent implements OnInit {
   ) {
     this.taskForm = this.taskFormPresenterService.buildTaskForm();
     this.isSubmitted = false;
+    this.isUpdated = false;
     this.addTaskData = new EventEmitter();
     this.updateTaskData = new EventEmitter();
   }
@@ -43,6 +45,7 @@ export class TaskFormPresentationComponent implements OnInit {
       if (res) {
         this.taskForm.patchValue(res);
         this.taskId = res.id;
+        this.isUpdated = true;
       }
     });
   }
