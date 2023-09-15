@@ -14,12 +14,53 @@
       <td>{{ item.taskName }}</td>
       <td>{{ item.dueDate }}</td>
       <td>
-        <span class="p-2 rounded-2 me-2 bg-gray d-inline-block"
-          >Not Started</span
-        >
-        <!-- <span class="p-2 rounded-2 me-2 bg-info text-white">In Progress</span>
+        <!-- <span class="p-2 rounded-2 me-2 bg-gray">Not Started</span>
+        <span class="p-2 rounded-2 me-2 bg-info text-white">In Progress</span>
         <span class="py-2 px-4 rounded-2 me-2 bg-success text-white">Done</span> -->
-        <span class="bi bi-caret-down p-0 cursor-pointer"></span>
+        <div class="d-flex justify-content-center align-items-center">
+          <div id="selectedValue_{{ i }}" #selectedValues>Not Started</div>
+          <form class="ms-2">
+            <div class="form-group">
+              <!-- <label for="dropdownSelect"></label> -->
+              <div class="dropdown">
+                <span
+                  class="cursor-pointer dropdown-toggle"
+                  id="dropdownMenuButton"
+                  data-bs-toggle="dropdown"
+                ></span>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li>
+                    <span
+                      class="p-2 rounded-2 me-2 bg-gray dropdown-item mb-2"
+                      (click)="updateSelectedValue(i, 'Not Started')"
+                      >Not Started</span
+                    >
+                  </li>
+                  <li>
+                    <span
+                      class="p-2 rounded-2 me-2 bg-info text-white dropdown-item mb-2"
+                      (click)="updateSelectedValue(i, 'In Progress')"
+                      >In Progress</span
+                    >
+                  </li>
+                  <li>
+                    <span
+                      class="py-2 px-4 rounded-2 me-2 bg-success text-white dropdown-item mb-2"
+                      (click)="updateSelectedValue(i, 'Done')"
+                      >Done</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- <span
+          #spanElement
+          class="bi bi-caret-down p-0 cursor-pointer"
+          (click)="onDropDown(spanElement)"
+        ></span> -->
       </td>
       <td>
         <button
