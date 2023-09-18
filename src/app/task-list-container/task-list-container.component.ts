@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Task } from '../models/task.model';
+import { Task, TaskStatus } from '../models/task.model';
 import { TaskService } from '../services/task/task.service';
 import { DataCommunicationsService } from '../core/services/data-communications.service';
 
@@ -10,6 +10,7 @@ import { DataCommunicationsService } from '../core/services/data-communications.
 })
 export class TaskListContainerComponent implements OnInit {
   public allTask: Task[];
+  public taskStatus: any;
   public id: any;
   public userId: number | undefined;
   constructor(
@@ -24,10 +25,9 @@ export class TaskListContainerComponent implements OnInit {
   }
   ngOnInit() {
     this.getAllTasks();
+    this.getTaskStatus();
 
     this.dataCommunicationsService.isUpdated$.subscribe((res) => {
-      console.log(res);
-
       if (res) {
         this.getAllTasks();
       }
@@ -41,5 +41,24 @@ export class TaskListContainerComponent implements OnInit {
   deleteTask(taskId: number) {
     this.taskService.deleteTask(taskId).subscribe((res) => {});
     this.getAllTasks();
+  }
+
+  getTaskData(task: any) {
+    if (task.taskStatus == TaskStatus.NotStarted) {
+      task.item.taskStatus = 1;
+    }
+    if (task.taskStatus == TaskStatus.InProgress) {
+      task.item.taskStatus = 2;
+    }
+    if (task.taskStatus == TaskStatus.Done) {
+      task.item.taskStatus = 3;
+    }
+    this.taskService.updateTask(task.item).subscribe((res) => {});
+  }
+
+  getTaskStatus() {
+    this.taskService.getTaskStatus().subscribe((res) => {
+      this.taskStatus = res;
+    });
   }
 }

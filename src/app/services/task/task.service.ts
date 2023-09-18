@@ -44,4 +44,9 @@ export class TaskService {
   deleteTask(taskId: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}ToDo/${taskId}`);
   }
+
+  //Get Task Status
+  getTaskStatus():Observable<any>{
+    return this.http.get(`${this.baseUrl}TaskStatus`)
+  }
 }

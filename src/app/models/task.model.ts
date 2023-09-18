@@ -8,3 +8,9 @@ export class Task {
   dueDate?: Date;
   userId?: number;
 }
+
+export enum TaskStatus {
+  NotStarted = 'Not Started',
+  InProgress = 'In Progress',
+  Done = 'Done',
+}

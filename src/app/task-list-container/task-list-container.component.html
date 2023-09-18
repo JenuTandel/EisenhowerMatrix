@@ -1,5 +1,7 @@
 <app-task-list-presentation
   [allTask]="allTask"
+  [taskStatus]="taskStatus"
   (deleteTask)="deleteTask($event)"
+  (getTaskData)="getTaskData($event)"
 ></app-task-list-presentation>
 <!-- (taskDetails)="getTaskDetails($event)" -->

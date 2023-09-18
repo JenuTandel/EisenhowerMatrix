@@ -7,86 +7,86 @@
       "id": 110769295324459730000
     }
   ],
+  "TaskStatus": [
+    {
+      "id": 1,
+      "value": "Not Started"
+    },
+    {
+      "id": 2,
+      "value": "In Progress"
+    },
+    {
+      "id": 3,
+      "value": "Done"
+    }
+  ],
   "ToDo": [
     {
-      "taskName": "Requirement Analysissss",
-      "taskDescription": "fdfdfdf",
-      "taskUrgency": "Not Urgent",
-      "taskImportance": "Important",
-      "startDate": "",
-      "dueDate": "2023-09-14",
-      "id": 7,
-      "userId": 110769295324459730000
-    },
-    {
-      "taskName": "Development",
-      "taskDescription": "sdfsdf",
-      "taskUrgency": "Not Urgent",
+      "taskName": "Requirement Analysis",
+      "taskDescription": "Requirement Analysis",
+      "taskUrgency": "Urgent",
       "taskImportance": "Important",
       "startDate": "2023-09-22",
-      "dueDate": "2023-09-23",
-      "id": 8,
-      "userId": 110769295324459730000
-    },
-    {
-      "taskName": "Database",
-      "taskDescription": "dfffffffffffffffffffffffffffff",
-      "taskUrgency": "Not Urgent",
-      "taskImportance": "Not Important",
-      "startDate": "",
-      "dueDate": "2023-09-27",
-      "id": 10,
-      "userId": 110769295324459730000
+      "dueDate": "2023-09-24",
+      "userId": 110769295324459730000,
+      "taskStatus": 2,
+      "id": 1
     },
     {
       "taskName": "UI Design",
-      "taskDescription": "csdcsdcsdc",
-      "taskUrgency": "Urgent",
+      "taskDescription": "UI Design",
+      "taskUrgency": "Not Urgent",
       "taskImportance": "Important",
-      "startDate": "2023-09-23",
-      "dueDate": "2023-09-15",
+      "startDate": "",
+      "dueDate": "2023-09-30",
       "userId": 110769295324459730000,
-      "id": 11
+      "taskStatus": 1,
+      "id": 2
     },
     {
-      "taskName": "Requirement Analysis",
-      "taskDescription": "Requirement",
+      "taskName": "Development",
+      "taskDescription": "Development",
+      "taskUrgency": "Not Urgent",
+      "taskImportance": "Important",
+      "startDate": "",
+      "dueDate": "2023-09-30",
+      "userId": 110769295324459730000,
+      "taskStatus": 3,
+      "id": 3
+    },
+    {
+      "taskName": "UI Testing",
+      "taskDescription": "UI Testing",
       "taskUrgency": "Not Urgent",
       "taskImportance": "Not Important",
       "startDate": "",
-      "dueDate": "2023-09-16",
+      "dueDate": "2023-09-28",
       "userId": 110769295324459730000,
-      "id": 12
+      "taskStatus": 1,
+      "id": 4
     },
     {
-      "taskName": "Development of Form",
-      "taskDescription": "sdcscsd",
-      "taskUrgency": "Urgent",
-      "taskImportance": "Important",
-      "startDate": "",
-      "dueDate": "2023-09-21",
-      "userId": 110769295324459730000,
-      "id": 13
-    },
-    {
-      "taskName": "sdvsd",
-      "taskDescription": "sdvsdvsd",
+      "taskName": "Testing",
+      "taskDescription": "Testing",
       "taskUrgency": "Urgent",
       "taskImportance": "Not Important",
       "startDate": "",
-      "dueDate": "2023-09-09",
-      "id": 14,
-      "userId": 110769295324459730000
+      "dueDate": "2023-10-07",
+      "userId": 110769295324459730000,
+      "taskStatus": 2,
+      "id": 5
     },
     {
-      "taskName": "vsdvsdvs",
-      "taskDescription": "dvsdvsdvds",
+      "taskName": "Maintenance",
+      "taskDescription": "Maintenance",
       "taskUrgency": "Urgent",
       "taskImportance": "Important",
       "startDate": "",
-      "dueDate": "2023-09-28",
+      "dueDate": "2023-09-20",
       "userId": 110769295324459730000,
-      "id": 15
+      "taskStatus": 1,
+      "id": 6
     }
   ]
 }

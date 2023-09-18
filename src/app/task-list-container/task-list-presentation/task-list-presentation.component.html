@@ -14,53 +14,49 @@
       <td>{{ item.taskName }}</td>
       <td>{{ item.dueDate }}</td>
       <td>
-        <!-- <span class="p-2 rounded-2 me-2 bg-gray">Not Started</span>
-        <span class="p-2 rounded-2 me-2 bg-info text-white">In Progress</span>
-        <span class="py-2 px-4 rounded-2 me-2 bg-success text-white">Done</span> -->
         <div class="d-flex justify-content-center align-items-center">
-          <div id="selectedValue_{{ i }}" #selectedValues>Not Started</div>
-          <form class="ms-2">
-            <div class="form-group">
-              <!-- <label for="dropdownSelect"></label> -->
-              <div class="dropdown">
+          <!-- <div
+            id="selectedValue_{{ item.id }}"
+            class="p-2 rounded-2 me-2"
+            #selectedValues
+          >
+            {{ item.taskStatus }}
+          </div> -->
+          <span
+            class="p-2 rounded-2 me-2 bg-gray"
+            id="selectedValue_{{ item.id }}"
+            *ngIf="item.taskStatus == 1"
+            >{{ item.taskStatus | label }}</span
+          >
+          <span
+            class="p-2 rounded-2 me-2 bg-info text-white"
+            id="selectedValue_{{ item.id }}"
+            *ngIf="item.taskStatus == 2"
+            >{{ item.taskStatus | label }}</span
+          >
+          <span
+            class="py-2 px-4 rounded-2 me-2 bg-success text-white"
+            *ngIf="item.taskStatus == 3"
+            id="selectedValue_{{ item.id }}"
+            >{{ item.taskStatus | label }}</span
+          >
+          <div class="dropdown">
+            <span
+              class="cursor-pointer dropdown-toggle"
+              id="dropdownMenuButton"
+              data-bs-toggle="dropdown"
+            ></span>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li *ngFor="let status of taskStatus">
                 <span
-                  class="cursor-pointer dropdown-toggle"
-                  id="dropdownMenuButton"
-                  data-bs-toggle="dropdown"
-                ></span>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <li>
-                    <span
-                      class="p-2 rounded-2 me-2 bg-gray dropdown-item mb-2"
-                      (click)="updateSelectedValue(i, 'Not Started')"
-                      >Not Started</span
-                    >
-                  </li>
-                  <li>
-                    <span
-                      class="p-2 rounded-2 me-2 bg-info text-white dropdown-item mb-2"
-                      (click)="updateSelectedValue(i, 'In Progress')"
-                      >In Progress</span
-                    >
-                  </li>
-                  <li>
-                    <span
-                      class="py-2 px-4 rounded-2 me-2 bg-success text-white dropdown-item mb-2"
-                      (click)="updateSelectedValue(i, 'Done')"
-                      >Done</span
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </form>
+                  class="p-2 dropdown-item"
+                  (click)="updateSelectedValue(item, status.value)"
+                  >{{ status.value }}</span
+                >
+              </li>
+            </ul>
+          </div>
         </div>
-
-        <!-- <span
-          #spanElement
-          class="bi bi-caret-down p-0 cursor-pointer"
-          (click)="onDropDown(spanElement)"
-        ></span> -->
       </td>
       <td>
         <button
