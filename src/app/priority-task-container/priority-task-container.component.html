@@ -1,3 +1,4 @@
 <app-priority-task-presentation
   [allTasks]="allTasks$ | async"
+  (getDraggedTask)="getDraggedTask($event)"
 ></app-priority-task-presentation>

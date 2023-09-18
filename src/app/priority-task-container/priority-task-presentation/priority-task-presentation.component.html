@@ -1,37 +1,62 @@
-<div class="row h-100 gx-0">
-  <!-- start: column 1 - do first -->
-  <div class="col-3 p-3 bg-gray">
+<!-- <div class="row h-100 gx-0"> -->
+<!-- start: column 1 - do first -->
+<!-- <div class="col-3 p-3 bg-gray">
     <h5 class="fw-semibold mb-4">Do First</h5>
     <div *ngFor="let item of doTasks">
       <app-card [Tasks]="item"></app-card>
     </div>
-  </div>
-  <!-- end: column 1 - do first -->
+  </div> -->
+<!-- end: column 1 - do first -->
 
-  <!-- start: column 2 - schedule task -->
-  <div class="col-3 p-3">
+<!-- start: column 2 - schedule task -->
+<!-- <div class="col-3 p-3">
     <h5 class="fw-semibold mb-4">Schedule</h5>
     <div *ngFor="let item of scheduleTasks">
       <app-card [Tasks]="item"></app-card>
     </div>
-  </div>
-  <!-- end: column 2 - schedule task -->
+  </div> -->
+<!-- end: column 2 - schedule task -->
 
-  <!-- start: column 3 - delegate task -->
-  <div class="col-3 p-3 bg-gray">
+<!-- start: column 3 - delegate task -->
+<!-- <div class="col-3 p-3 bg-gray">
     <h5 class="fw-semibold mb-4">Delegate</h5>
     <div *ngFor="let item of delegateTasks">
       <app-card [Tasks]="item"></app-card>
     </div>
-  </div>
-  <!-- end: column 3 - delegate task -->
+  </div> -->
+<!-- end: column 3 - delegate task -->
 
-  <!-- start: column 4 - delete task -->
-  <div class="col-3 p-3">
+<!-- start: column 4 - delete task -->
+<!-- <div class="col-3 p-3">
     <h5 class="fw-semibold mb-4">Delete</h5>
     <div *ngFor="let item of deleteTasks">
       <app-card [Tasks]="item"></app-card>
     </div>
+  </div> -->
+<!-- end: column 4 - delete task -->
+<!-- </div> -->
+
+<div class="board row h-100" cdkDropListGroup>
+  <div
+    class="col-12 col-md-6 col-xl-3 d-flex flex-column border-gray border-end"
+    *ngFor="let column of board.columns"
+  >
+    <h5 class="fw-bold mb-4">{{ column.name }}</h5>
+    <div
+      class="overflow-y-auto flex-grow-1"
+      cdkDropList
+      [cdkDropListData]="column.tasks"
+      [cdkDropListConnectedTo]="column.name"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div
+        *ngFor="let item of column.tasks"
+        cdkDrag
+        [cdkDragData]="item"
+        (cdkDragStarted)="onDragStarted($event)"
+      >
+        <app-card [Tasks]="item"></app-card>
+      </div>
+    </div>
   </div>
-  <!-- end: column 4 - delete task -->
 </div>

@@ -18,6 +18,7 @@ import { TaskProgressComponent } from './task-progress/task-progress.component';
 import { AuthModule } from '@auth0/auth0-angular';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     HttpClientModule,
     ReactiveFormsModule,
+    DragDropModule,
     AngularFireModule.initializeApp(environment.firebase),
     AuthModule.forRoot(environment.auth),
   ],

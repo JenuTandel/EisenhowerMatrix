@@ -26,4 +26,24 @@ export class PriorityTaskContainerComponent implements OnInit {
   getAllTasks() {
     this.allTasks$ = this.taskService.getAllTask();
   }
+
+  getDraggedTask(taskDragged: any) {
+    if (taskDragged.column == 'Do First') {
+      taskDragged.task.taskUrgency = 'Urgent';
+      taskDragged.task.taskImportance = 'Important';
+    }
+    if (taskDragged.column == 'Schedule') {
+      taskDragged.task.taskUrgency = 'Not Urgent';
+      taskDragged.task.taskImportance = 'Important';
+    }
+    if (taskDragged.column == 'Delegate') {
+      taskDragged.task.taskUrgency = 'Urgent';
+      taskDragged.task.taskImportance = 'Not Important';
+    }
+    if (taskDragged.column == 'Delete') {
+      taskDragged.task.taskUrgency = 'Not Urgent';
+      taskDragged.task.taskImportance = 'Not Important';
+    }
+    this.taskService.updateTask(taskDragged.task).subscribe((res) => {});
+  }
 }

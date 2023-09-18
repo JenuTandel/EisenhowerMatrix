@@ -1,10 +1,28 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { Task } from 'src/app/models/task.model';
+import {
+  CdkDragDrop,
+  CdkDragStart,
+  moveItemInArray,
+  transferArrayItem,
+} from '@angular/cdk/drag-drop';
+import { Board } from 'src/app/models/board.model';
+import { Column } from 'src/app/models/column.model';
+import { PriorityTaskPresenterService } from '../priority-task-presenter/priority-task-presenter.service';
 
 @Component({
   selector: 'app-priority-task-presentation',
   templateUrl: './priority-task-presentation.component.html',
   styleUrls: ['./priority-task-presentation.component.scss'],
+  providers: [PriorityTaskPresenterService],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PriorityTaskPresentationComponent implements OnInit {
   @Input() public set allTasks(allTasks: Task[] | null) {
@@ -36,20 +54,57 @@ export class PriorityTaskPresentationComponent implements OnInit {
           item.taskImportance == 'Not Important'
       );
     }
+    this.board = new Board('Priorities', [
+      new Column('Do First', this.doTasks),
+      new Column('Schedule', this.scheduleTasks),
+      new Column('Delegate', this.delegateTasks),
+      new Column('Delete', this.deleteTasks),
+    ]);
   }
 
   public get allTasks(): Task[] {
     return this._allTasks;
   }
+  public board!: Board;
 
   private _allTasks: Task[];
   public doTasks: any;
   public scheduleTasks: any;
   public delegateTasks: any;
   public deleteTasks: any;
+  public draggedItem: any;
+  @Output() public getDraggedTask: EventEmitter<any>;
 
   constructor() {
     this._allTasks = [];
+    this.getDraggedTask = new EventEmitter<any>();
   }
+
   ngOnInit(): void {}
+  // Event handler for drag start
+  onDragStarted(event: CdkDragStart) {
+    this.draggedItem = event.source.data;
+  }
+  drop(event: CdkDragDrop<string[]>) {
+    // console.log(event.container);
+    // console.log(event.previousContainer);
+    if (event.previousContainer === event.container) {
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+      this.getDraggedTask.emit({
+        task: this.draggedItem,
+        column: event.container.connectedTo,
+      });
+    }
+  }
 }
