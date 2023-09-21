@@ -6,7 +6,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { Task } from 'src/app/models/task.model';
+import { Task, TaskImportance, TaskUrgency } from 'src/app/models/task.model';
 import {
   CdkDragDrop,
   CdkDragStart,
@@ -27,31 +27,36 @@ import { PriorityTaskPresenterService } from '../priority-task-presenter/priorit
 export class PriorityTaskPresentationComponent implements OnInit {
   @Input() public set allTasks(allTasks: Task[] | null) {
     if (allTasks) {
+      //If task is done, then don't prioritize
+      allTasks = allTasks.filter((res) => res.taskStatus !== 3);
       this._allTasks = this._allTasks.concat(allTasks);
 
       // filter do first tasks
       this.doTasks = this._allTasks.filter(
         (item: any) =>
-          item.taskUrgency == 'Urgent' && item.taskImportance == 'Important'
+          item.taskUrgency == TaskUrgency.Urgent &&
+          item.taskImportance == TaskImportance.Important
       );
 
       //filter schedule tasks
       this.scheduleTasks = this.allTasks.filter(
         (item: any) =>
-          item.taskUrgency == 'Not Urgent' && item.taskImportance == 'Important'
+          item.taskUrgency == TaskUrgency.NotUrgent &&
+          item.taskImportance == TaskImportance.Important
       );
 
       //filter delegate tasks
       this.delegateTasks = this.allTasks.filter(
         (item: any) =>
-          item.taskUrgency == 'Urgent' && item.taskImportance == 'Not Important'
+          item.taskUrgency == TaskUrgency.Urgent &&
+          item.taskImportance == TaskImportance.NotImportant
       );
 
       //filter delete tasks
       this.deleteTasks = this.allTasks.filter(
         (item: any) =>
-          item.taskUrgency == 'Not Urgent' &&
-          item.taskImportance == 'Not Important'
+          item.taskUrgency == TaskUrgency.NotUrgent &&
+          item.taskImportance == TaskImportance.NotImportant
       );
     }
     this.board = new Board('Priorities', [
@@ -61,6 +66,7 @@ export class PriorityTaskPresentationComponent implements OnInit {
       new Column('Delete', this.deleteTasks),
     ]);
   }
+  @Output() public getDraggedTask: EventEmitter<any>;
 
   public get allTasks(): Task[] {
     return this._allTasks;
@@ -73,7 +79,6 @@ export class PriorityTaskPresentationComponent implements OnInit {
   public delegateTasks: any;
   public deleteTasks: any;
   public draggedItem: any;
-  @Output() public getDraggedTask: EventEmitter<any>;
 
   constructor() {
     this._allTasks = [];

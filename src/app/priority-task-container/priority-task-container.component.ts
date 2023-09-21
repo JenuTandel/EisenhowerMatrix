@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../services/task/task.service';
 import { Observable } from 'rxjs';
+import { TaskImportance, TaskUrgency } from '../models/task.model';
 
 @Component({
   selector: 'app-priority-task-container',
@@ -29,20 +30,20 @@ export class PriorityTaskContainerComponent implements OnInit {
 
   getDraggedTask(taskDragged: any) {
     if (taskDragged.column == 'Do First') {
-      taskDragged.task.taskUrgency = 'Urgent';
-      taskDragged.task.taskImportance = 'Important';
+      taskDragged.task.taskUrgency = TaskUrgency.Urgent;
+      taskDragged.task.taskImportance = TaskImportance.Important;
     }
     if (taskDragged.column == 'Schedule') {
-      taskDragged.task.taskUrgency = 'Not Urgent';
-      taskDragged.task.taskImportance = 'Important';
+      taskDragged.task.taskUrgency = TaskUrgency.NotUrgent;
+      taskDragged.task.taskImportance = TaskImportance.Important;
     }
     if (taskDragged.column == 'Delegate') {
-      taskDragged.task.taskUrgency = 'Urgent';
-      taskDragged.task.taskImportance = 'Not Important';
+      taskDragged.task.taskUrgency = TaskUrgency.Urgent;
+      taskDragged.task.taskImportance = TaskImportance.NotImportant;
     }
     if (taskDragged.column == 'Delete') {
-      taskDragged.task.taskUrgency = 'Not Urgent';
-      taskDragged.task.taskImportance = 'Not Important';
+      taskDragged.task.taskUrgency = TaskUrgency.NotUrgent;
+      taskDragged.task.taskImportance = TaskImportance.NotImportant;
     }
     this.taskService.updateTask(taskDragged.task).subscribe((res) => {});
   }
