@@ -30,6 +30,7 @@ export class TaskListPresentationComponent implements AfterViewInit {
   @Output() editTask: EventEmitter<any>;
   @Output() taskDetails: EventEmitter<any>;
   @Output() getTaskData: EventEmitter<any>;
+  public searchTerm: string;
 
   constructor(
     private overlayService: OverlayService,
@@ -39,9 +40,14 @@ export class TaskListPresentationComponent implements AfterViewInit {
     this.editTask = new EventEmitter();
     this.taskDetails = new EventEmitter();
     this.getTaskData = new EventEmitter();
+    this.searchTerm = '';
   }
   ngAfterViewInit(): void {}
-  ngOnInit() {}
+  ngOnInit() {
+    this.dataCommunicationService.searchTerm$.subscribe((res) => {
+      this.searchTerm = res;
+    });
+  }
 
   onEditTask(task: Task) {
     setTimeout(() => {

@@ -34,19 +34,10 @@ export class TaskListContainerComponent implements OnInit {
         this.getAllTasks();
       }
     });
-
-    this.dataCommunicationsService.searchTerm$.subscribe((res) => {
-      this.allTask = this.filteredTask.filter((item: any) =>
-        item.taskName.toLocaleLowerCase().includes(res.toLocaleLowerCase())
-      );
-    });
   }
   getAllTasks() {
     this.taskService.getAllTask().subscribe((res) => {
-      this.filteredTask = res.filter(
-        (item: any) => item.userId === this.userId
-      );
-      this.allTask = this.filteredTask;
+      this.allTask = res.filter((item: any) => item.userId === this.userId);
     });
   }
   deleteTask(taskId: number) {

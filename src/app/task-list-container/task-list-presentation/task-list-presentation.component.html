@@ -1,4 +1,3 @@
-<div *ngIf="allTask.length == 0">No Task Found</div>
 <table class="table table-striped text-center" *ngIf="allTask.length > 0">
   <thead>
     <tr>
@@ -9,8 +8,14 @@
       <th class="bg-primary text-white">Actions</th>
     </tr>
   </thead>
-  <tbody>
-    <tr *ngFor="let item of allTask; let i = index">
+  <tbody *ngIf="allTask | search : searchTerm as filteredData">
+    <tr
+      *ngIf="filteredData.length == 0"
+      class="text-danger fs-4 m-2 text-start"
+    >
+      No Task Found
+    </tr>
+    <tr *ngFor="let item of filteredData; let i = index">
       <td>{{ i + 1 }}</td>
       <td>{{ item.taskName }}</td>
       <td>{{ item.dueDate }}</td>
