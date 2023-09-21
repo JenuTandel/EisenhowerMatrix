@@ -46,12 +46,21 @@ export class TaskListContainerComponent implements OnInit {
   getTaskData(task: any) {
     if (task.taskStatus == TaskStatus.NotStarted) {
       task.item.taskStatus = 1;
+      task.item.completionDate = null;
+      if (task.item.startDate) {
+        task.item.startDate = null;
+      }
     }
     if (task.taskStatus == TaskStatus.InProgress) {
       task.item.taskStatus = 2;
+      task.item.completionDate = null;
+      if (!task.item.startDate) {
+        task.item.startDate = new Date();
+      }
     }
     if (task.taskStatus == TaskStatus.Done) {
       task.item.taskStatus = 3;
+      task.item.completionDate = new Date();
     }
     this.taskService.updateTask(task.item).subscribe((res) => {});
   }

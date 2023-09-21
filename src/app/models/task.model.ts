@@ -7,6 +7,7 @@ export class Task {
   taskStatus?: number;
   startDate?: Date;
   dueDate?: Date;
+  completionDate?: Date;
   userId?: number;
 }
 

@@ -24,36 +24,36 @@
   "ToDo": [
     {
       "taskName": "Requirement Analysis",
-      "taskDescription": "Requirement Analysis",
+      "taskDescription": "Requirements analysis or requirements engineering is a process used to determine the needs and expectations of a new product. It involves frequent communication with the stakeholders and end-users of the product to define expectations, resolve conflicts, and document all the key requirements.",
       "taskUrgency": "Urgent",
       "taskImportance": "Important",
-      "startDate": "2023-09-22",
+      "startDate": "2023-09-21T05:57:51.318Z",
       "dueDate": "2023-09-24",
-      "userId": 110769295324459730000,
+      "id": 1,
       "taskStatus": 2,
-      "id": 1
+      "userId": 110769295324459730000
     },
     {
       "taskName": "UI Design",
       "taskDescription": "UI Design",
-      "taskUrgency": "Not Urgent",
+      "taskUrgency": "Urgent",
       "taskImportance": "Important",
-      "startDate": "",
+      "startDate": "2023-09-21T05:37:59.197Z",
       "dueDate": "2023-09-30",
-      "userId": 110769295324459730000,
-      "taskStatus": 1,
-      "id": 2
+      "id": 2,
+      "taskStatus": 3,
+      "userId": 110769295324459730000
     },
     {
       "taskName": "Development",
       "taskDescription": "Development",
       "taskUrgency": "Not Urgent",
       "taskImportance": "Important",
-      "startDate": "",
+      "startDate": "2023-09-21T05:43:03.541Z",
       "dueDate": "2023-09-30",
+      "id": 3,
       "userId": 110769295324459730000,
-      "taskStatus": 2,
-      "id": 3
+      "taskStatus": 1
     },
     {
       "taskName": "UI Testing",
@@ -64,7 +64,8 @@
       "dueDate": "2023-09-28",
       "userId": 110769295324459730000,
       "taskStatus": 1,
-      "id": 4
+      "id": 4,
+      "completionDate": null
     },
     {
       "taskName": "Testing",
@@ -82,11 +83,12 @@
       "taskDescription": "Maintenance",
       "taskUrgency": "Urgent",
       "taskImportance": "Important",
-      "startDate": "",
+      "startDate": "2023-09-21T06:14:39.025Z",
       "dueDate": "2023-09-20",
       "userId": 110769295324459730000,
-      "taskStatus": 1,
-      "id": 6
+      "taskStatus": 3,
+      "id": 6,
+      "completionDate": "2023-09-21T06:14:51.581Z"
     }
   ]
 }

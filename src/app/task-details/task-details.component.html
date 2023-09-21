@@ -9,4 +9,7 @@
   <p class="fw-bold mb-2">{{ taskDetails.taskImportance }}</p>
   <p>Start Date: {{ taskDetails.startDate | date : "mediumDate" }}</p>
   <p>Due Date: {{ taskDetails.dueDate | date : "mediumDate" }}</p>
+  <p class="mt-2" *ngIf="taskDetails.completionDate">
+    Date of completion: {{ taskDetails.completionDate | date : "mediumDate" }}
+  </p>
 </div>
