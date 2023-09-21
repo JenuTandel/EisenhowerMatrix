@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Task, TaskStatus } from '../models/task.model';
 import { TaskService } from '../services/task/task.service';
 import { DataCommunicationsService } from '../core/services/data-communications.service';
+import { TaskListPresentationComponent } from './task-list-presentation/task-list-presentation.component';
 
 @Component({
   selector: 'app-task-list-container',
   templateUrl: './task-list-container.component.html',
   styleUrls: ['./task-list-container.component.scss'],
+  standalone: true,
+  imports: [TaskListPresentationComponent],
 })
 export class TaskListContainerComponent implements OnInit {
   public allTask: Task[];
@@ -40,7 +43,7 @@ export class TaskListContainerComponent implements OnInit {
       this.allTask = res.filter((item: any) => item.userId === this.userId);
     });
   }
-  deleteTask(taskId: number) {
+  deleteTask(taskId: any) {
     this.taskService.deleteTask(taskId).subscribe((res) => {});
     this.getAllTasks();
   }

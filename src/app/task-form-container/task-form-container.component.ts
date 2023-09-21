@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { DataCommunicationsService } from '../core/services/data-communications.service';
 import { Task } from '../models/task.model';
 import { TaskService } from '../services/task/task.service';
+import { TaskFormPresentationComponent } from './task-form-presentation/task-form-presentation.component';
 
 @Component({
   selector: 'app-task-form-container',
   templateUrl: './task-form-container.component.html',
   styleUrls: ['./task-form-container.component.scss'],
+  standalone: true,
+  imports: [TaskFormPresentationComponent],
 })
 export class TaskFormContainerComponent implements OnInit {
   public userId;

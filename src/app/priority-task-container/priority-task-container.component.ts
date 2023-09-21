@@ -2,11 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../services/task/task.service';
 import { Observable } from 'rxjs';
 import { TaskImportance, TaskUrgency } from '../models/task.model';
+import { PriorityTaskPresentationComponent } from './priority-task-presentation/priority-task-presentation.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-priority-task-container',
   templateUrl: './priority-task-container.component.html',
   styleUrls: ['./priority-task-container.component.scss'],
+  standalone: true,
+  imports: [PriorityTaskPresentationComponent, CommonModule],
 })
 export class PriorityTaskContainerComponent implements OnInit {
   public allTasks$!: Observable<any>;

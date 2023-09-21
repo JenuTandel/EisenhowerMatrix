@@ -27,23 +27,23 @@
       "taskDescription": "Requirements analysis or requirements engineering is a process used to determine the needs and expectations of a new product. It involves frequent communication with the stakeholders and end-users of the product to define expectations, resolve conflicts, and document all the key requirements.",
       "taskUrgency": "Urgent",
       "taskImportance": "Important",
-      "startDate": null,
+      "startDate": "2023-09-21T11:46:34.779Z",
       "dueDate": "2023-09-24",
       "id": 1,
-      "taskStatus": 1,
-      "userId": 110769295324459730000,
-      "completionDate": null
+      "taskStatus": 2,
+      "userId": 110769295324459730000
     },
     {
       "taskName": "UI Design",
       "taskDescription": "User interface (UI) design is the process designers use to build interfaces in software or computerized devices, focusing on looks or style. Designers aim to create interfaces which users find easy to use and pleasurable.",
-      "taskUrgency": "Urgent",
+      "taskUrgency": "Not Urgent",
       "taskImportance": "Important",
       "startDate": null,
       "dueDate": "2023-09-30",
       "id": 2,
       "taskStatus": 1,
-      "userId": 110769295324459730000
+      "userId": 110769295324459730000,
+      "completionDate": null
     },
     {
       "taskName": "Development",
@@ -61,22 +61,24 @@
       "taskDescription": "UI Testing (User Interface Testing) is a technique that ensures the UI of a website or mobile application is user-friendly and meets the expected customer or end-user requirements. It validates the visual design and layout, and functionality of the user interface to make sure it performs as intended.",
       "taskUrgency": "Not Urgent",
       "taskImportance": "Not Important",
-      "startDate": "",
+      "startDate": "2023-09-21T13:45:39.993Z",
       "dueDate": "2023-09-28",
       "id": 4,
-      "taskStatus": 1,
-      "userId": 110769295324459730000
+      "taskStatus": 2,
+      "userId": 110769295324459730000,
+      "completionDate": null
     },
     {
       "taskName": "Testing",
       "taskDescription": "Testing is the practice of making objective judgments regarding the extent to which the. system (device) meets, exceeds or fails to meet stated objectives.",
       "taskUrgency": "Urgent",
       "taskImportance": "Not Important",
-      "startDate": "",
+      "startDate": "2023-09-21T12:05:05.023Z",
       "dueDate": "2023-10-07",
       "id": 5,
-      "taskStatus": 1,
-      "userId": 110769295324459730000
+      "taskStatus": 2,
+      "userId": 110769295324459730000,
+      "completionDate": null
     },
     {
       "taskName": "Maintenance",
@@ -88,6 +90,18 @@
       "id": 6,
       "taskStatus": 1,
       "userId": 110769295324459730000
+    },
+    {
+      "taskName": "Form UI Testing",
+      "taskDescription": "Form UI",
+      "taskUrgency": "Urgent",
+      "taskImportance": "Not Important",
+      "startDate": "2023-09-22",
+      "dueDate": "2023-09-23",
+      "userId": 110769295324459730000,
+      "taskStatus": 3,
+      "id": 7,
+      "completionDate": "2023-09-21T12:05:14.386Z"
     }
   ]
 }

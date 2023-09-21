@@ -7,9 +7,10 @@ import {
   Output,
 } from '@angular/core';
 import { TaskFormPresenterService } from '../task-form-presenter/task-form-presenter.service';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Task } from 'src/app/models/task.model';
 import { DataCommunicationsService } from 'src/app/core/services/data-communications.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-task-form-presentation',
@@ -17,15 +18,17 @@ import { DataCommunicationsService } from 'src/app/core/services/data-communicat
   styleUrls: ['./task-form-presentation.component.scss'],
   providers: [TaskFormPresenterService],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ReactiveFormsModule, CommonModule],
 })
 export class TaskFormPresentationComponent implements OnInit {
-  @Input() public taskId!: number;
   @Output() addTaskData: EventEmitter<Task>;
   @Output() updateTaskData: EventEmitter<Task>;
   public taskForm: FormGroup;
   public isSubmitted: boolean;
   public isUpdated: boolean;
   public taskStatus: any;
+  public taskId!: number;
 
   constructor(
     private taskFormPresenterService: TaskFormPresenterService,

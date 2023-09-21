@@ -10,12 +10,15 @@ import { Task, TaskImportance, TaskUrgency } from 'src/app/models/task.model';
 import {
   CdkDragDrop,
   CdkDragStart,
+  DragDropModule,
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { Board } from 'src/app/models/board.model';
 import { Column } from 'src/app/models/column.model';
 import { PriorityTaskPresenterService } from '../priority-task-presenter/priority-task-presenter.service';
+import { CommonModule } from '@angular/common';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @Component({
   selector: 'app-priority-task-presentation',
@@ -23,9 +26,11 @@ import { PriorityTaskPresenterService } from '../priority-task-presenter/priorit
   styleUrls: ['./priority-task-presentation.component.scss'],
   providers: [PriorityTaskPresenterService],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule, DragDropModule, SharedModule],
 })
 export class PriorityTaskPresentationComponent implements OnInit {
-  @Input() public set allTasks(allTasks: Task[] | null) {
+  @Input({ required: true }) public set allTasks(allTasks: Task[] | null) {
     if (allTasks) {
       //If task is done, then don't prioritize
       allTasks = allTasks.filter((res) => res.taskStatus !== 3);

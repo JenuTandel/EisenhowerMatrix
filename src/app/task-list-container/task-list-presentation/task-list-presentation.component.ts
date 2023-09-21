@@ -1,20 +1,17 @@
+import { CommonModule } from '@angular/common';
 import {
   AfterViewInit,
   Component,
-  ElementRef,
   EventEmitter,
   Input,
   Output,
-  QueryList,
-  ViewChild,
-  ViewChildren,
 } from '@angular/core';
 import { DataCommunicationsService } from 'src/app/core/services/data-communications.service';
 import { OverlayService } from 'src/app/core/services/overlay.service';
-import { Task, TaskStatus } from 'src/app/models/task.model';
+import { Task } from 'src/app/models/task.model';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { TaskDetailsComponent } from 'src/app/task-details/task-details.component';
 import { TaskFormContainerComponent } from 'src/app/task-form-container/task-form-container.component';
-import { TaskProgressComponent } from 'src/app/task-progress/task-progress.component';
 import { TaskListPresenterService } from '../task-list-presenter/task-list-presenter.service';
 
 @Component({
@@ -22,10 +19,12 @@ import { TaskListPresenterService } from '../task-list-presenter/task-list-prese
   templateUrl: './task-list-presentation.component.html',
   styleUrls: ['./task-list-presentation.component.scss'],
   providers: [TaskListPresenterService],
+  standalone: true,
+  imports: [SharedModule, CommonModule],
 })
 export class TaskListPresentationComponent implements AfterViewInit {
-  @Input() allTask: any;
-  @Input() taskStatus: any;
+  @Input({ required: true }) allTask: any;
+  @Input({ required: true }) taskStatus: any;
   @Output() deleteTask: EventEmitter<any>;
   @Output() editTask: EventEmitter<any>;
   @Output() taskDetails: EventEmitter<any>;
