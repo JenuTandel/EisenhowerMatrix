@@ -10,9 +10,9 @@ export class SearchPipe implements PipeTransform {
       return tasks;
     }
     searchTerm = searchTerm.toLowerCase();
-    const d = tasks.filter((item) => {
+    const filteredTask = tasks.filter((item) => {
       return JSON.stringify(item).toLowerCase().includes(searchTerm);
     });
-    return d;
+    return filteredTask;
   }
 }
