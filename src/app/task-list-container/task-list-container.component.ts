@@ -10,6 +10,7 @@ import { DataCommunicationsService } from '../core/services/data-communications.
 })
 export class TaskListContainerComponent implements OnInit {
   public allTask: Task[];
+  public filteredTask: Task[];
   public taskStatus: any;
   public id: any;
   public userId: number | undefined;
@@ -18,6 +19,7 @@ export class TaskListContainerComponent implements OnInit {
     private dataCommunicationsService: DataCommunicationsService
   ) {
     this.allTask = [];
+    this.filteredTask = [];
     this.id = localStorage.getItem('id');
     if (this.id) {
       this.userId = parseInt(this.id);
@@ -32,10 +34,19 @@ export class TaskListContainerComponent implements OnInit {
         this.getAllTasks();
       }
     });
+
+    this.dataCommunicationsService.searchTerm$.subscribe((res) => {
+      this.allTask = this.filteredTask.filter((item: any) =>
+        item.taskName.toLocaleLowerCase().includes(res.toLocaleLowerCase())
+      );
+    });
   }
   getAllTasks() {
     this.taskService.getAllTask().subscribe((res) => {
-      this.allTask = res.filter((item: any) => item.userId === this.userId);
+      this.filteredTask = res.filter(
+        (item: any) => item.userId === this.userId
+      );
+      this.allTask = this.filteredTask;
     });
   }
   deleteTask(taskId: number) {

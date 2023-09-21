@@ -3,9 +3,13 @@
   <div class="d-flex align-items-center">
     <form class="me-2">
       <input
-        type="search"
+        type="text"
+        name="search"
+        id="search"
         placeholder="Search here"
         class="form-control rounded-2 py-1 px-3 border-0 me-2 bg-secondary"
+        (input)="onSearch()"
+        [(ngModel)]="searchTerm"
       />
     </form>
     <span

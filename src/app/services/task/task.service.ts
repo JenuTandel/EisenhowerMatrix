@@ -35,8 +35,6 @@ export class TaskService {
 
   //Update the task details
   updateTask(taskData: Task): Observable<any> {
-    console.log(taskData);
-
     return this.http.put(`${this.baseUrl}ToDo/${taskData.id}`, taskData);
   }
 
@@ -46,7 +44,7 @@ export class TaskService {
   }
 
   //Get Task Status
-  getTaskStatus():Observable<any>{
-    return this.http.get(`${this.baseUrl}TaskStatus`)
+  getTaskStatus(): Observable<any> {
+    return this.http.get(`${this.baseUrl}TaskStatus`);
   }
 }

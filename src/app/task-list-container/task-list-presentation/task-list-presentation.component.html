@@ -1,4 +1,5 @@
-<table class="table table-striped text-center">
+<div *ngIf="allTask.length == 0">No Task Found</div>
+<table class="table table-striped text-center" *ngIf="allTask.length > 0">
   <thead>
     <tr>
       <th class="bg-primary text-white">Sr. No.</th>

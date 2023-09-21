@@ -15,8 +15,10 @@ export class DataCommunicationsService {
   public isUpdated$: Observable<boolean>;
   private isUpdated: BehaviorSubject<boolean>;
 
+  public searchTerm$: Observable<string>;
+  private searchTerm: BehaviorSubject<string>;
+
   constructor() {
-    console.log('data communication service work');
     this.editData$ = new Observable();
     this.editData = new Subject<any>();
     this.editData$ = this.editData.asObservable();
@@ -28,6 +30,10 @@ export class DataCommunicationsService {
     this.isUpdated$ = new Observable();
     this.isUpdated = new BehaviorSubject<boolean>(false);
     this.isUpdated$ = this.isUpdated.asObservable();
+
+    this.searchTerm$ = new Observable();
+    this.searchTerm = new BehaviorSubject<string>('');
+    this.searchTerm$ = this.searchTerm.asObservable();
   }
 
   getData(data: Task) {
@@ -40,5 +46,9 @@ export class DataCommunicationsService {
 
   getTaskUpdated() {
     this.isUpdated.next(true);
+  }
+
+  setSearchTerm(term: string) {
+    this.searchTerm.next(term);
   }
 }

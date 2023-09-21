@@ -27,68 +27,67 @@
       "taskDescription": "Requirements analysis or requirements engineering is a process used to determine the needs and expectations of a new product. It involves frequent communication with the stakeholders and end-users of the product to define expectations, resolve conflicts, and document all the key requirements.",
       "taskUrgency": "Urgent",
       "taskImportance": "Important",
-      "startDate": "2023-09-21T05:57:51.318Z",
+      "startDate": null,
       "dueDate": "2023-09-24",
       "id": 1,
-      "taskStatus": 2,
-      "userId": 110769295324459730000
+      "taskStatus": 1,
+      "userId": 110769295324459730000,
+      "completionDate": null
     },
     {
       "taskName": "UI Design",
-      "taskDescription": "UI Design",
+      "taskDescription": "User interface (UI) design is the process designers use to build interfaces in software or computerized devices, focusing on looks or style. Designers aim to create interfaces which users find easy to use and pleasurable.",
       "taskUrgency": "Urgent",
       "taskImportance": "Important",
-      "startDate": "2023-09-21T05:37:59.197Z",
+      "startDate": null,
       "dueDate": "2023-09-30",
       "id": 2,
-      "taskStatus": 3,
+      "taskStatus": 1,
       "userId": 110769295324459730000
     },
     {
       "taskName": "Development",
-      "taskDescription": "Development",
+      "taskDescription": "Development is a process that creates growth, progress, positive change or the addition of physical, economic, environmental, social and demographic components.",
       "taskUrgency": "Not Urgent",
       "taskImportance": "Important",
       "startDate": "2023-09-21T05:43:03.541Z",
       "dueDate": "2023-09-30",
       "id": 3,
-      "userId": 110769295324459730000,
-      "taskStatus": 1
+      "taskStatus": 1,
+      "userId": 110769295324459730000
     },
     {
       "taskName": "UI Testing",
-      "taskDescription": "UI Testing",
+      "taskDescription": "UI Testing (User Interface Testing) is a technique that ensures the UI of a website or mobile application is user-friendly and meets the expected customer or end-user requirements. It validates the visual design and layout, and functionality of the user interface to make sure it performs as intended.",
       "taskUrgency": "Not Urgent",
       "taskImportance": "Not Important",
       "startDate": "",
       "dueDate": "2023-09-28",
-      "userId": 110769295324459730000,
-      "taskStatus": 1,
       "id": 4,
-      "completionDate": null
+      "taskStatus": 1,
+      "userId": 110769295324459730000
     },
     {
       "taskName": "Testing",
-      "taskDescription": "Testing",
+      "taskDescription": "Testing is the practice of making objective judgments regarding the extent to which the. system (device) meets, exceeds or fails to meet stated objectives.",
       "taskUrgency": "Urgent",
       "taskImportance": "Not Important",
       "startDate": "",
       "dueDate": "2023-10-07",
-      "userId": 110769295324459730000,
-      "taskStatus": 2,
-      "id": 5
+      "id": 5,
+      "taskStatus": 1,
+      "userId": 110769295324459730000
     },
     {
       "taskName": "Maintenance",
-      "taskDescription": "Maintenance",
+      "taskDescription": "Maintenance software is used to manage maintenance activities by organizing, planning, tracking and analyzing all the jobs you and your team do on a regular basis. It makes maintenance more connected, efficient, and visible to the rest of your organization.",
       "taskUrgency": "Urgent",
       "taskImportance": "Important",
-      "startDate": "2023-09-21T06:14:39.025Z",
+      "startDate": null,
       "dueDate": "2023-09-20",
-      "userId": 110769295324459730000,
-      "taskStatus": 3,
       "id": 6,
-      "completionDate": "2023-09-21T06:14:51.581Z"
+      "taskStatus": 1,
+      "userId": 110769295324459730000
     }
   ]
 }
