@@ -1,5 +1,6 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   EventEmitter,
   Input,
@@ -11,15 +12,16 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Task } from 'src/app/models/task.model';
 import { DataCommunicationsService } from 'src/app/core/services/data-communications.service';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @Component({
   selector: 'app-task-form-presentation',
   templateUrl: './task-form-presentation.component.html',
   styleUrls: ['./task-form-presentation.component.scss'],
   providers: [TaskFormPresenterService],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, SharedModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TaskFormPresentationComponent implements OnInit {
   @Output() addTaskData: EventEmitter<Task>;
@@ -32,7 +34,8 @@ export class TaskFormPresentationComponent implements OnInit {
 
   constructor(
     private taskFormPresenterService: TaskFormPresenterService,
-    private dataCommunicationsService: DataCommunicationsService
+    private dataCommunicationsService: DataCommunicationsService,
+    private cdr: ChangeDetectorRef
   ) {
     this.taskForm = this.taskFormPresenterService.buildTaskForm();
     this.isSubmitted = false;
@@ -49,6 +52,7 @@ export class TaskFormPresentationComponent implements OnInit {
     this.dataCommunicationsService.editData$.subscribe((res) => {
       if (res) {
         this.taskForm.patchValue(res);
+        this.cdr.markForCheck();
         this.taskId = res.id;
         this.taskStatus = res.taskStatus;
         this.isUpdated = true;

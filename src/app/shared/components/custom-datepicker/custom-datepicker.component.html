@@ -1,0 +1,36 @@
+<input
+  type="date"
+  class="form-control"
+  (input)="onDateChange($event)"
+  (blur)="onTouched()"
+  (change)="onDateChange($event)"
+  [disabled]="disabled"
+  [value]="dateValue"
+  [ngClass]="{
+    'is-invalid':
+      controlDir.control?.invalid &&
+      (isFormSubmitted ||
+        controlDir.control?.touched ||
+        controlDir.control?.dirty),
+    'is-valid':
+      controlDir.control?.valid &&
+      (isFormSubmitted ||
+        controlDir.control?.touched ||
+        controlDir.control?.dirty)
+  }"
+/>
+<!-- Display error -->
+<div
+  *ngIf="
+    controlDir.control?.invalid &&
+    (isFormSubmitted ||
+      controlDir.control?.touched ||
+      controlDir.control?.dirty)
+  "
+>
+  <span
+    class="error text-danger"
+    *ngIf="controlDir.control?.errors?.['required']"
+    >Select the date</span
+  >
+</div>

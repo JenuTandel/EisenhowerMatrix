@@ -146,24 +146,22 @@
     <!-- start: start date control -->
     <div class="mb-3">
       <label for="start-date">Start date:</label>
-      <input
-        type="date"
-        class="form-control"
+      <app-custom-datepicker
         id="start-date"
         formControlName="startDate"
-      />
+      ></app-custom-datepicker>
     </div>
     <!-- end: start date control -->
 
     <!-- start: due date control -->
     <div class="mb-3">
       <label for="due-date">Due date<span class="text-danger">*</span></label>
-      <input
-        type="date"
-        class="form-control"
+      <app-custom-datepicker
         id="due-date"
         formControlName="dueDate"
-        [ngClass]="{
+        [isFormSubmitted]="isSubmitted"
+      ></app-custom-datepicker>
+      <!-- [ngClass]="{
           'is-invalid':
             taskForm.controls['dueDate'].invalid &&
             (isSubmitted ||
@@ -174,10 +172,9 @@
             (isSubmitted ||
               taskForm.controls['dueDate'].touched ||
               taskForm.controls['dueDate'].dirty)
-        }"
-      />
+        }" -->
 
-      <div
+      <!-- <div
         *ngIf="
           taskForm.controls['dueDate'].invalid &&
           (isSubmitted ||
@@ -190,7 +187,7 @@
           *ngIf="taskForm.controls['dueDate'].errors?.['required']"
           >Select the due date</span
         >
-      </div>
+      </div> -->
     </div>
     <!-- end: due date control -->
     <!-- submit button -->
