@@ -56,7 +56,7 @@
               <li *ngFor="let status of taskStatus">
                 <span
                   class="p-2 dropdown-item"
-                  (click)="updateSelectedValue(item, status.value)"
+                  (click)="updateSelectedValue(item, status.id)"
                   >{{ status.value }}</span
                 >
               </li>

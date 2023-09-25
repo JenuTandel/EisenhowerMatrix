@@ -13,7 +13,6 @@ import { TaskListPresentationComponent } from './task-list-presentation/task-lis
 })
 export class TaskListContainerComponent implements OnInit {
   public allTask: Task[];
-  public filteredTask: Task[];
   public taskStatus: any;
   public id: any;
   public userId: number | undefined;
@@ -22,7 +21,6 @@ export class TaskListContainerComponent implements OnInit {
     private dataCommunicationsService: DataCommunicationsService
   ) {
     this.allTask = [];
-    this.filteredTask = [];
     this.id = localStorage.getItem('id');
     if (this.id) {
       this.userId = parseInt(this.id);
@@ -45,29 +43,46 @@ export class TaskListContainerComponent implements OnInit {
   }
   deleteTask(taskId: any) {
     this.taskService.deleteTask(taskId).subscribe((res) => {});
-    this.getAllTasks();
+    const index = this.allTask.findIndex((res) => res.id == taskId);
+    this.allTask.splice(index, 1);
+    // this.getAllTasks();
   }
 
   getTaskData(task: any) {
-    if (task.taskStatus == TaskStatus.NotStarted) {
+    const previousStatus = task.item.taskStatus;
+
+    if (task.taskStatus == 1) {
+      debugger;
       task.item.taskStatus = 1;
       task.item.completionDate = null;
       if (task.item.startDate) {
         task.item.startDate = null;
       }
     }
-    if (task.taskStatus == TaskStatus.InProgress) {
+    if (task.taskStatus == 2) {
+      debugger;
       task.item.taskStatus = 2;
       task.item.completionDate = null;
       if (!task.item.startDate) {
         task.item.startDate = new Date();
       }
     }
-    if (task.taskStatus == TaskStatus.Done) {
+    if (task.taskStatus == 3) {
+      debugger;
       task.item.taskStatus = 3;
       task.item.completionDate = new Date();
     }
-    this.taskService.updateTask(task.item).subscribe((res) => {});
+
+    console.log(task.taskStatus);
+
+    if (task.taskStatus != previousStatus) {
+      this.taskService.updateTask(task.item).subscribe((res) => {});
+    }
+
+    // const data = this.allTask.filter((res) => res.id == task.item.id);
+
+    // if (data[0].taskStatus == task.taskStatus) {
+    // }
   }
 
   getTaskStatus() {

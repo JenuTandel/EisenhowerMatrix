@@ -27,11 +27,12 @@
       "taskDescription": "Requirements analysis or requirements engineering is a process used to determine the needs and expectations of a new product. It involves frequent communication with the stakeholders and end-users of the product to define expectations, resolve conflicts, and document all the key requirements.",
       "taskUrgency": "Urgent",
       "taskImportance": "Important",
-      "startDate": "2023-09-21T11:46:34.779Z",
+      "startDate": null,
       "dueDate": "2023-09-24",
       "id": 1,
-      "taskStatus": 2,
-      "userId": 110769295324459730000
+      "taskStatus": 1,
+      "userId": 110769295324459730000,
+      "completionDate": null
     },
     {
       "taskName": "UI Design",
@@ -53,8 +54,9 @@
       "startDate": "2023-09-21T05:43:03.541Z",
       "dueDate": "2023-09-30",
       "id": 3,
-      "taskStatus": 1,
-      "userId": 110769295324459730000
+      "taskStatus": 3,
+      "userId": 110769295324459730000,
+      "completionDate": "2023-09-25T05:57:26.289Z"
     },
     {
       "taskName": "UI Testing",
@@ -84,24 +86,12 @@
       "taskName": "Maintenance",
       "taskDescription": "Maintenance software is used to manage maintenance activities by organizing, planning, tracking and analyzing all the jobs you and your team do on a regular basis. It makes maintenance more connected, efficient, and visible to the rest of your organization.",
       "taskUrgency": "Urgent",
-      "taskImportance": "Important",
+      "taskImportance": "Not Important",
       "startDate": null,
       "dueDate": "2023-09-20",
       "id": 6,
       "taskStatus": 1,
       "userId": 110769295324459730000
-    },
-    {
-      "taskName": "Form UI Testing",
-      "taskDescription": "Form UI",
-      "taskUrgency": "Urgent",
-      "taskImportance": "Not Important",
-      "startDate": "2023-09-22",
-      "dueDate": "2023-09-23",
-      "userId": 110769295324459730000,
-      "taskStatus": 3,
-      "id": 7,
-      "completionDate": "2023-09-21T12:05:14.386Z"
     }
   ]
 }
