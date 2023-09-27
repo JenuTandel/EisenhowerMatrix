@@ -14,3 +14,13 @@ tbody {
     top: 0;
     right: 0;
 }
+
+.task-row {
+    position: relative;
+}
+
+.actions {
+    position: absolute;
+    top: 5px;
+    right: 5px
+}

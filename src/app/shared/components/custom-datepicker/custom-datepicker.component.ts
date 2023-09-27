@@ -5,7 +5,7 @@ import {
   NG_VALUE_ACCESSOR,
   NgControl,
 } from '@angular/forms';
-import { injectNgControl } from 'src/app/customControl';
+import { injectNgControl } from '../../../../../src/app/customControl';
 
 @Component({
   selector: 'app-custom-datepicker',
@@ -20,7 +20,7 @@ import { injectNgControl } from 'src/app/customControl';
   // ],
 })
 export class CustomDatepickerComponent implements OnInit, ControlValueAccessor {
-  @Input() isFormSubmitted:boolean;
+  @Input() isFormSubmitted: boolean;
   public dateValue: any;
   onTouched: () => void = () => {};
   onChange: (value: any) => void = () => {};

@@ -5,7 +5,7 @@
       <th class="bg-primary text-white">Task Name</th>
       <th class="bg-primary text-white">Due Date</th>
       <th class="bg-primary text-white">Task Progress</th>
-      <th class="bg-primary text-white">Actions</th>
+      <!-- <th class="bg-primary text-white">Actions</th> -->
     </tr>
   </thead>
   <tbody *ngIf="allTask | search : searchTerm as filteredData">
@@ -15,7 +15,13 @@
     >
       No Task Found
     </tr>
-    <tr *ngFor="let item of filteredData; let i = index">
+    <tr
+      *ngFor="let item of filteredData; let i = index"
+      (click)="onTaskDetails(item)"
+      class="task-row cursor-pointer"
+      (mouseenter)="onTaskHover(true, i)"
+      (mouseleave)="onTaskHover(false, i)"
+    >
       <td>{{ i + 1 }}</td>
       <td>{{ item.taskName }}</td>
       <td>{{ item.dueDate }}</td>
@@ -46,7 +52,7 @@
             id="selectedValue_{{ item.id }}"
             >{{ item.taskStatus | label }}</span
           >
-          <div class="dropdown">
+          <div class="dropdown" (click)="openDropdown($event)">
             <span
               class="cursor-pointer dropdown-toggle"
               id="dropdownMenuButton"
@@ -64,8 +70,19 @@
           </div>
         </div>
       </td>
-      <td>
-        <button
+      <!-- <td> -->
+      <div class="actions d-flex align-items-center" *ngIf="isHovered == i">
+        <span
+          class="bi bi-pencil me-3 fs-6"
+          (click)="onEditTask($event, item)"
+        ></span>
+        <span
+          class="bi bi-x-circle fs-6"
+          (click)="onDeleteTask($event, item.id)"
+        ></span>
+      </div>
+
+      <!-- <button
           type="button"
           class="btn btn-outline-success px-4 py-1 me-2"
           (click)="onEditTask(item)"
@@ -78,15 +95,15 @@
           (click)="onDeleteTask(item.id)"
         >
           Delete
-        </button>
-        <button
+        </button> -->
+      <!-- <button
           type="button"
           class="btn btn-outline-info px-4 py-1"
           (click)="onTaskDetails(item)"
         >
           Details
-        </button>
-      </td>
+        </button> -->
+      <!-- </td> -->
     </tr>
   </tbody>
 </table>

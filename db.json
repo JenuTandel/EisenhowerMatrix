@@ -23,30 +23,6 @@
   ],
   "ToDo": [
     {
-      "taskName": "Requirement Analysis",
-      "taskDescription": "Requirements analysis or requirements engineering is a process used to determine the needs and expectations of a new product. It involves frequent communication with the stakeholders and end-users of the product to define expectations, resolve conflicts, and document all the key requirements.",
-      "taskUrgency": "Urgent",
-      "taskImportance": "Important",
-      "startDate": null,
-      "dueDate": "2023-09-24",
-      "id": 1,
-      "taskStatus": 1,
-      "userId": 110769295324459730000,
-      "completionDate": null
-    },
-    {
-      "taskName": "UI Design",
-      "taskDescription": "User interface (UI) design is the process designers use to build interfaces in software or computerized devices, focusing on looks or style. Designers aim to create interfaces which users find easy to use and pleasurable.",
-      "taskUrgency": "Not Urgent",
-      "taskImportance": "Important",
-      "startDate": null,
-      "dueDate": "2023-09-30",
-      "id": 2,
-      "taskStatus": 1,
-      "userId": 110769295324459730000,
-      "completionDate": null
-    },
-    {
       "taskName": "Development",
       "taskDescription": "Development is a process that creates growth, progress, positive change or the addition of physical, economic, environmental, social and demographic components.",
       "taskUrgency": "Not Urgent",
@@ -54,9 +30,9 @@
       "startDate": "2023-09-21T05:43:03.541Z",
       "dueDate": "2023-09-30",
       "id": 3,
-      "taskStatus": 3,
+      "taskStatus": 2,
       "userId": 110769295324459730000,
-      "completionDate": "2023-09-25T05:57:26.289Z"
+      "completionDate": null
     },
     {
       "taskName": "UI Testing",
@@ -66,9 +42,9 @@
       "startDate": "2023-09-21T13:45:39.993Z",
       "dueDate": "2023-09-28",
       "id": 4,
-      "taskStatus": 2,
+      "taskStatus": 3,
       "userId": 110769295324459730000,
-      "completionDate": null
+      "completionDate": "2023-09-25T10:14:18.055Z"
     },
     {
       "taskName": "Testing",
@@ -86,12 +62,34 @@
       "taskName": "Maintenance",
       "taskDescription": "Maintenance software is used to manage maintenance activities by organizing, planning, tracking and analyzing all the jobs you and your team do on a regular basis. It makes maintenance more connected, efficient, and visible to the rest of your organization.",
       "taskUrgency": "Urgent",
-      "taskImportance": "Not Important",
+      "taskImportance": "Important",
       "startDate": null,
       "dueDate": "2023-09-20",
       "id": 6,
       "taskStatus": 1,
       "userId": 110769295324459730000
+    },
+    {
+      "taskName": "Requirement Analysis",
+      "taskDescription": "Requirements analysis or requirements engineering is a process used to determine the needs and expectations of a new product. It involves frequent communication with the stakeholders and end-users of the product to define expectations, resolve conflicts, and document all the key requirements.",
+      "taskUrgency": "Urgent",
+      "taskImportance": "Not Important",
+      "startDate": "",
+      "dueDate": "2023-09-30",
+      "id": 7,
+      "taskStatus": 3,
+      "userId": 110769295324459730000
+    },
+    {
+      "taskName": "UI Design",
+      "taskDescription": "User interface (UI) design is the process designers use to build interfaces in software or computerized devices, focusing on looks or style. Designers aim to create interfaces which users find easy to use and pleasurable.",
+      "taskUrgency": "Not Urgent",
+      "taskImportance": "Important",
+      "startDate": "",
+      "dueDate": "2023-09-28",
+      "userId": 110769295324459730000,
+      "taskStatus": 1,
+      "id": 8
     }
   ]
 }

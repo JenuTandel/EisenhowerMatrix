@@ -30,6 +30,7 @@ export class TaskListPresentationComponent implements AfterViewInit {
   @Output() taskDetails: EventEmitter<any>;
   @Output() getTaskData: EventEmitter<any>;
   public searchTerm: string;
+  public isHovered: boolean | number;
 
   constructor(
     private overlayService: OverlayService,
@@ -40,6 +41,7 @@ export class TaskListPresentationComponent implements AfterViewInit {
     this.taskDetails = new EventEmitter();
     this.getTaskData = new EventEmitter();
     this.searchTerm = '';
+    this.isHovered = false;
   }
   ngAfterViewInit(): void {}
   ngOnInit() {
@@ -48,13 +50,15 @@ export class TaskListPresentationComponent implements AfterViewInit {
     });
   }
 
-  onEditTask(task: Task) {
+  onEditTask(event: any, task: Task) {
+    event.stopPropagation();
     setTimeout(() => {
       this.dataCommunicationService.getData(task);
     }, 0);
     this.overlayService.openDialog(TaskFormContainerComponent, 'taskform');
   }
-  onDeleteTask(id: number) {
+  onDeleteTask(event: any, id: number) {
+    event.stopPropagation();
     this.deleteTask.emit(id);
   }
   onTaskDetails(task: Task) {
@@ -67,5 +71,16 @@ export class TaskListPresentationComponent implements AfterViewInit {
   // Function to update a specific selected value
   updateSelectedValue(task: any, value: string) {
     this.getTaskData.emit({ item: task, taskStatus: value });
+  }
+  openDropdown(event: any) {
+    event.stopPropagation();
+  }
+  onTaskHover(hovered: boolean | number, index: number) {
+    if (hovered == true) {
+      this.isHovered = index;
+    } else {
+      this.isHovered = false;
+      this.isHovered = -1;
+    }
   }
 }
