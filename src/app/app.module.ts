@@ -9,9 +9,10 @@ import { environment } from '../environments/environment.development';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { TaskStatusComponent } from './task-status/task-status.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, TaskStatusComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

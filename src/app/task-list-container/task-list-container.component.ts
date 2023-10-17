@@ -52,7 +52,6 @@ export class TaskListContainerComponent implements OnInit {
     const previousStatus = task.item.taskStatus;
 
     if (task.taskStatus == 1) {
-      debugger;
       task.item.taskStatus = 1;
       task.item.completionDate = null;
       if (task.item.startDate) {
@@ -60,7 +59,6 @@ export class TaskListContainerComponent implements OnInit {
       }
     }
     if (task.taskStatus == 2) {
-      debugger;
       task.item.taskStatus = 2;
       task.item.completionDate = null;
       if (!task.item.startDate) {
@@ -68,7 +66,6 @@ export class TaskListContainerComponent implements OnInit {
       }
     }
     if (task.taskStatus == 3) {
-      debugger;
       task.item.taskStatus = 3;
       task.item.completionDate = new Date();
     }

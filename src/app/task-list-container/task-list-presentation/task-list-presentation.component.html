@@ -26,58 +26,63 @@
       <td>{{ item.taskName }}</td>
       <td>{{ item.dueDate }}</td>
       <td>
-        <div class="d-flex justify-content-center align-items-center">
-          <!-- <div
+        <!-- <div
             id="selectedValue_{{ item.id }}"
             class="p-2 rounded-2 me-2"
             #selectedValues
           >
             {{ item.taskStatus }}
           </div> -->
-          <span
-            class="p-2 rounded-2 me-2 bg-gray"
-            id="selectedValue_{{ item.id }}"
-            *ngIf="item.taskStatus == 1"
-            >{{ item.taskStatus | label }}</span
-          >
-          <span
-            class="p-2 rounded-2 me-2 bg-info text-white"
-            id="selectedValue_{{ item.id }}"
-            *ngIf="item.taskStatus == 2"
-            >{{ item.taskStatus | label }}</span
-          >
-          <span
-            class="py-2 px-4 rounded-2 me-2 bg-success text-white"
-            *ngIf="item.taskStatus == 3"
-            id="selectedValue_{{ item.id }}"
-            >{{ item.taskStatus | label }}</span
-          >
-          <div class="dropdown" (click)="openDropdown($event)">
+        <div
+          class="dropdown cursor-pointer dropdown-toggle d-flex align-items-center justify-content-center"
+          id="dropdownMenuButton"
+          data-bs-toggle="dropdown"
+          (click)="openDropdown($event)"
+        >
+          <div class="d-flex justify-content-center align-items-center">
             <span
+              class="p-2 rounded-2 me-2 bg-gray"
+              id="selectedValue_{{ item.id }}"
+              *ngIf="item.taskStatus == 1"
+              >{{ item.taskStatus | label }}</span
+            >
+            <span
+              class="p-2 rounded-2 me-2 bg-info text-white"
+              id="selectedValue_{{ item.id }}"
+              *ngIf="item.taskStatus == 2"
+              >{{ item.taskStatus | label }}</span
+            >
+            <span
+              class="py-2 task-done rounded-2 me-2 bg-success text-white"
+              *ngIf="item.taskStatus == 3"
+              id="selectedValue_{{ item.id }}"
+              >{{ item.taskStatus | label }}</span
+            >
+          </div>
+          <!-- <span
               class="cursor-pointer dropdown-toggle"
               id="dropdownMenuButton"
               data-bs-toggle="dropdown"
-            ></span>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li *ngFor="let status of taskStatus">
-                <span
-                  class="p-2 dropdown-item"
-                  (click)="updateSelectedValue(item, status.id)"
-                  >{{ status.value }}</span
-                >
-              </li>
-            </ul>
-          </div>
+            ></span> -->
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li *ngFor="let status of taskStatus">
+              <span
+                class="p-2 dropdown-item"
+                (click)="updateSelectedValue(item, status.id)"
+                >{{ status.value }}</span
+              >
+            </li>
+          </ul>
         </div>
       </td>
       <!-- <td> -->
       <div class="actions d-flex align-items-center" *ngIf="isHovered == i">
         <span
-          class="bi bi-pencil me-3 fs-6"
+          class="bi bi-pencil me-3 fs-5 text-info"
           (click)="onEditTask($event, item)"
         ></span>
         <span
-          class="bi bi-x-circle fs-6"
+          class="bi bi-x-circle fs-5 text-danger"
           (click)="onDeleteTask($event, item.id)"
         ></span>
       </div>
